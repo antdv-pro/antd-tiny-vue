@@ -1,0 +1,18 @@
+{
+  "name": "antd-tiny-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@mistjs/eslint-config-vue-jsx": "^0.0.3",
+    "eslint": "^8.34.0",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5"
+  }
+}
