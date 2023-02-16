@@ -7,13 +7,18 @@
   "author": "aibayanyu",
   "main": "index.js",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.3",
+    "@commitlint/config-conventional": "^17.4.3",
     "@mistjs/eslint-config-vue-jsx": "^0.0.3",
+    "@mistjs/tsconfig": "^1.0.0",
     "@mistjs/tsconfig-vue": "^0.0.3",
     "@types/node": "^18.13.0",
     "eslint": "^8.34.0",
+    "husky": "^8.0.3",
     "prettier": "^2.8.4",
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
