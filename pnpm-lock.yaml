@@ -1,14 +1,17 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@ant-design/colors': ^7.0.0
   '@antd-tiny-vue/cssinjs': ^0.0.4
   '@commitlint/cli': ^17.4.3
   '@commitlint/config-conventional': ^17.4.3
+  '@ctrl/tinycolor': ^3.6.0
   '@mistjs/eslint-config-vue-jsx': ^0.0.3
   '@mistjs/tsconfig': ^1.0.0
   '@mistjs/tsconfig-vue': ^0.0.3
   '@types/node': ^18.13.0
   '@vitejs/plugin-vue-jsx': ^3.0.0
+  '@vueuse/core': ^9.13.0
   eslint: ^8.34.0
   husky: ^8.0.3
   lint-staged: ^13.1.2
@@ -21,7 +24,10 @@ specifiers:
   vue: ^3.2.0
 
 dependencies:
+  '@ant-design/colors': 7.0.0
   '@antd-tiny-vue/cssinjs': 0.0.4_vue@3.2.47
+  '@ctrl/tinycolor': 3.6.0
+  '@vueuse/core': 9.13.0_vue@3.2.47
   vue: 3.2.47
 
 devDependencies:
@@ -164,6 +170,12 @@ packages:
       '@jridgewell/gen-mapping': 0.1.1
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
+
+  /@ant-design/colors/7.0.0:
+    resolution: {integrity: sha512-iVm/9PfGCbC0dSMBrz7oiEXZaaGH7ceU40OJEfKmyuzR9R5CRimJYPlRiFtMQGQcbNMea/ePcoIebi4ASGYXtg==}
+    dependencies:
+      '@ctrl/tinycolor': 3.6.0
+    dev: false
 
   /@antd-tiny-vue/cssinjs/0.0.4_vue@3.2.47:
     resolution: {integrity: sha512-o6eU9IN+nfzaeCLHaQ94FqgvZV7eHeyY/Qw0p7ETMOyEQup13LBb4feOQKHGtBKLRkeoTugpY6EhAuMhn10SYw==}
@@ -641,6 +653,11 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
+
+  /@ctrl/tinycolor/3.6.0:
+    resolution: {integrity: sha512-/Z3l6pXthq0JvMYdUFyX9j0MaCltlIn6mfh9jLyQwg5aPKxkyNa0PTHtU1AlFXLNk55ZuAeJRcpvq+tmLfKmaQ==}
+    engines: {node: '>=10'}
+    dev: false
 
   /@docsearch/css/3.3.3:
     resolution: {integrity: sha512-6SCwI7P8ao+se1TUsdZ7B4XzL+gqeQZnBc+2EONZlcVa0dVrk0NjETxozFKgMv0eEGH8QzP1fkN+A1rH61l4eg==}
@@ -1130,7 +1147,6 @@ packages:
 
   /@types/web-bluetooth/0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
-    dev: true
 
   /@typescript-eslint/eslint-plugin/5.51.0_z4swst3wuuqk4hlme4ajzslgh4:
     resolution: {integrity: sha512-wcAwhEWm1RgNd7dxD/o+nnLW8oH+6RK1OGnmbmkj/GGoDPV1WWMVP0FXYQBivKHdwM1pwii3bt//RC62EriIUQ==}
@@ -1441,11 +1457,9 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: true
 
   /@vueuse/metadata/9.13.0:
     resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==}
-    dev: true
 
   /@vueuse/shared/9.13.0_vue@3.2.47:
     resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==}
@@ -1454,7 +1468,6 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: true
 
   /JSONStream/1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -4841,7 +4854,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.47
-    dev: true
 
   /vue-eslint-parser/9.1.0_eslint@8.34.0:
     resolution: {integrity: sha512-NGn/iQy8/Wb7RrRa4aRkokyCZfOUWk19OP5HP6JEozQFX5AoS/t+Z0ZN7FY4LlmWc4FNI922V7cvX28zctN8dQ==}
