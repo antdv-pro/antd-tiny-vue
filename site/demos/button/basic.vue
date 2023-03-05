@@ -7,14 +7,10 @@ title: 基础按钮
 
 </docs>
 
-<script lang="ts" setup>
-  import Button from '../../../components/button'
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <div>
-    <Button />
-  </div>
+  <div></div>
 </template>
 
 <style scoped></style>
