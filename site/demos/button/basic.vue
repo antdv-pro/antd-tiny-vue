@@ -10,7 +10,9 @@ title: 基础按钮
 <script lang="ts" setup></script>
 
 <template>
-  <div></div>
+  <div>
+    <a-button>这是按钮</a-button>
+  </div>
 </template>
 
 <style scoped></style>

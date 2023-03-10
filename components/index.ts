@@ -1,7 +1,13 @@
-export {}
+import type { App } from 'vue'
+import * as components from './components'
 
-const aaa = () => {
-  // TODO
+export default {
+  install(app: App) {
+    for (const componentsKey in components) {
+      const component = (components as any)[componentsKey]
+      if (component.install) {
+        app.use(component)
+      }
+    }
+  }
 }
-
-export default aaa
