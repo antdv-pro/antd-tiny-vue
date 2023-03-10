@@ -77,6 +77,6 @@ export function useToken(): [ComputedRef<Theme<SeedToken, MapToken>>, ComputedRe
   return [mergedTheme, computed(() => cacheToken.value?.[0]), computed(() => (designTokenContext.hashed ? cacheToken.value?.[1] : ''))]
 }
 
-export type UseComponentStyleResult = [(node: VNodeChild) => VNodeChild, string]
+export type UseComponentStyleResult = [(node: VNodeChild) => VNodeChild, ComputedRef<string>]
 
 export type GenerateStyle<ComponentToken extends object = AliasToken, ReturnType = CSSInterpolation> = (token: ComponentToken) => ReturnType
