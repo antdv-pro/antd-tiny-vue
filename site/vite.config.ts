@@ -8,5 +8,8 @@ export default defineConfig({
     VitePluginVitepressDemo({
       glob: ['**/demos/**/*.vue']
     })
-  ]
+  ],
+  server: {
+    port: 9527
+  }
 })
