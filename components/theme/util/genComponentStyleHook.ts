@@ -92,7 +92,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         flush(component, mergedComponentToken)
         return [genCommonStyle(token.value, prefixCls.value), styleInterpolation]
       }),
-      hashId.value
+      hashId
     ]
   }
 }
