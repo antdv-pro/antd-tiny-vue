@@ -7,6 +7,10 @@ const Button = defineComponent({
   props: {
     prefixCls: {
       type: String
+    },
+    type: {
+      type: String,
+      default: 'default'
     }
   },
   setup(props, { slots, attrs }) {
@@ -16,6 +20,7 @@ const Button = defineComponent({
     return () => {
       const cls = {
         [prefixCls.value]: true,
+        [`${prefixCls.value}-${props.type}`]: !!props.type,
         [hashId.value]: true
       }
       return wrapSSR(<button class={[cls, attrs.class]}>{slots.default?.()}</button>)
