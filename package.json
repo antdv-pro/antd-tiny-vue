@@ -17,6 +17,7 @@
     "@ant-design/colors": "^7.0.0",
     "@antd-tiny-vue/cssinjs": "^0.0.4",
     "@ctrl/tinycolor": "^3.6.0",
+    "@v-c/utils": "^0.0.5",
     "@vueuse/core": "^9.13.0",
     "vue": "^3.2.0"
   },

@@ -1,6 +1,6 @@
 import type { CSSInterpolation, Theme } from '@antd-tiny-vue/cssinjs'
 import { createTheme, useCacheToken, useStyleRegister } from '@antd-tiny-vue/cssinjs'
-import { createInjectionState } from '@vueuse/core'
+import { createInjectionState } from '@v-c/utils'
 import type { ComputedRef, VNodeChild } from 'vue'
 import { computed } from 'vue'
 import version from '../version'

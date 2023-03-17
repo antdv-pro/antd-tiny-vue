@@ -10,6 +10,7 @@ specifiers:
   '@mistjs/tsconfig': ^1.0.0
   '@mistjs/tsconfig-vue': ^0.0.3
   '@types/node': ^18.13.0
+  '@v-c/utils': ^0.0.5
   '@vitejs/plugin-vue-jsx': ^3.0.0
   '@vueuse/core': ^9.13.0
   eslint: ^8.34.0
@@ -27,6 +28,7 @@ dependencies:
   '@ant-design/colors': 7.0.0
   '@antd-tiny-vue/cssinjs': 0.0.4_vue@3.2.47
   '@ctrl/tinycolor': 3.6.0
+  '@v-c/utils': 0.0.5
   '@vueuse/core': 9.13.0_vue@3.2.47
   vue: 3.2.47
 
@@ -1277,6 +1279,13 @@ packages:
       '@typescript-eslint/types': 5.51.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@v-c/utils/0.0.5:
+    resolution: {integrity: sha512-HiK9iupJ3YIl4AO8VxvQMVh5G7pkTYo7wMhWdsWr6XOPw86p5MgWdQRLhQNX1WbDjA9BsbpjuO7I5PyEhGYoFw==}
+    dependencies:
+      lodash.clonedeep: 4.5.0
+      vue: 3.2.47
+    dev: false
 
   /@vitejs/plugin-vue-jsx/3.0.0_vite@4.1.1+vue@3.2.47:
     resolution: {integrity: sha512-vurkuzgac5SYuxd2HUZqAFAWGTF10diKBwJNbCvnWijNZfXd+7jMtqjPFbGt7idOJUn584fP1Ar9j/GN2jQ3Ew==}
@@ -3440,6 +3449,10 @@ packages:
   /lodash.camelcase/4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
+
+  /lodash.clonedeep/4.5.0:
+    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
+    dev: false
 
   /lodash.isfunction/3.0.9:
     resolution: {integrity: sha512-AirXNj15uRIMMPihnkInB4i3NHeb4iBtNg9WRWuK2o31S+ePwwNmDPaTL3o7dTJ+VXNZim7rFs4rxN4YU1oUJw==}

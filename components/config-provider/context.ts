@@ -1,4 +1,4 @@
-import { createInjectionState } from '@vueuse/core'
+import { createInjectionState } from '@v-c/utils'
 import { computed } from 'vue'
 
 export const defaultIconPrefixCls = 'anticon'
