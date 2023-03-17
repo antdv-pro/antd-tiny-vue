@@ -1,11 +1,41 @@
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
+import { useProviderConfigState } from '../config-provider/context'
+import useStyle from './style'
 
 const Button = defineComponent({
   name: 'AButton',
-  props: {},
-  setup(props, { slots }) {
+  inheritAttrs: false,
+  props: {
+    prefixCls: {
+      type: String
+    },
+    type: {
+      type: String,
+      default: 'default'
+    }
+  },
+  setup(props, { slots, attrs }) {
+    const { getPrefixCls } = useProviderConfigState()
+    const prefixCls = computed(() => getPrefixCls('btn', props.prefixCls))
+    const [wrapSSR, hashId] = useStyle(prefixCls)
+
+    const cls = computed(() => {
+      return {
+        [prefixCls.value]: true,
+        [`${prefixCls.value}-${props.type}`]: !!props.type,
+        [hashId.value]: true
+      }
+    })
+
     return () => {
-      return <button>{slots.default?.()}</button>
+      return wrapSSR(
+        <button
+          {...attrs}
+          class={[cls.value, attrs.class]}
+        >
+          {slots.default?.()}
+        </button>
+      )
     }
   }
 })
