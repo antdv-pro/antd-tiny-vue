@@ -1,8 +1,7 @@
 import type { CSSInterpolation, Theme } from '@antd-tiny-vue/cssinjs'
 import { createTheme, useCacheToken, useStyleRegister } from '@antd-tiny-vue/cssinjs'
-import { createInjectionState } from '@vueuse/core'
 import type { ComputedRef, VNodeChild } from 'vue'
-import { computed } from 'vue'
+import { computed, inject, provide } from 'vue'
 import version from '../version'
 import type { AliasToken, GlobalToken, MapToken, OverrideToken, PresetColorKey, PresetColorType, SeedToken } from './interface'
 import { PresetColors } from './interface'
@@ -50,12 +49,14 @@ export interface DesignTokenConfig {
   hashed?: string | boolean
 }
 
-const [useDesignTokenProvider, useDesignTokenInject] = createInjectionState((token: DesignTokenConfig) => {
-  return token
-})
+export const DesignTokenContext = Symbol('DesignTokenContext')
+
+const useDesignTokenProvider = (token: DesignTokenConfig) => {
+  provide(DesignTokenContext, token)
+}
 
 export { useDesignTokenProvider }
-export const useDesignTokenState = () => useDesignTokenInject() ?? defaultConfig
+export const useDesignTokenState = () => inject(DesignTokenContext, defaultConfig)
 
 // ================================== Hook ==================================
 export function useToken(): [ComputedRef<Theme<SeedToken, MapToken>>, ComputedRef<GlobalToken>, ComputedRef<string>] {

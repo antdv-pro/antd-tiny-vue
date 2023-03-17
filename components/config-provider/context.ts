@@ -1,5 +1,4 @@
-import { createInjectionState } from '@vueuse/core'
-import { computed } from 'vue'
+import { computed, inject, provide } from 'vue'
 
 export const defaultIconPrefixCls = 'anticon'
 
@@ -8,21 +7,27 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
 
   return suffixCls ? `ant-${suffixCls}` : 'ant'
 }
-const [useProviderConfigProvide, useProviderConfigInject] = createInjectionState(() => {
+
+export const ConfigProviderContext = Symbol('ConfigProviderContext')
+
+export const defaultConfigProviderState = () => {
   const getPrefixCls = defaultGetPrefixCls
   const iconPrefixCls = computed(() => defaultIconPrefixCls)
   return {
     getPrefixCls,
     iconPrefixCls
   }
-})
+}
+
+const useProviderConfigProvide = () => {
+  const defaultState = defaultConfigProviderState()
+  provide(ConfigProviderContext, defaultState)
+  return {
+    ...defaultState
+  }
+}
 
 export { useProviderConfigProvide }
 export const useProviderConfigState = () => {
-  return (
-    useProviderConfigInject() ?? {
-      getPrefixCls: defaultGetPrefixCls,
-      iconPrefixCls: computed(() => defaultIconPrefixCls)
-    }
-  )
+  return inject(ConfigProviderContext, defaultConfigProviderState())
 }
