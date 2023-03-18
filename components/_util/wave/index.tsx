@@ -20,7 +20,7 @@ const Wave = defineComponent({
     const [, hashId] = useStyle(prefixCls)
     const showWave = useWave(
       containerRef,
-      computed(() => classNames(prefixCls, hashId))
+      computed(() => classNames(prefixCls.value, hashId.value))
     )
 
     const onClick = (e: MouseEvent) => {

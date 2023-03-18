@@ -12,6 +12,7 @@ title: 基础按钮
 <template>
   <div>
     <a-button>这是按钮</a-button>
+    <div style="height: 10px"></div>
   </div>
 </template>
 
