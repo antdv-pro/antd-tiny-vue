@@ -1,5 +1,6 @@
 import { computed, defineComponent } from 'vue'
 import { useProviderConfigState } from '../config-provider/context'
+import Wave from '../_util/wave'
 import useStyle from './style'
 
 const Button = defineComponent({
@@ -29,12 +30,14 @@ const Button = defineComponent({
 
     return () => {
       return wrapSSR(
-        <button
-          {...attrs}
-          class={[cls.value, attrs.class]}
-        >
-          {slots.default?.()}
-        </button>
+        <Wave>
+          <button
+            {...attrs}
+            class={[cls.value, attrs.class]}
+          >
+            {slots.default?.()}
+          </button>
+        </Wave>
       )
     }
   }
