@@ -10,7 +10,7 @@ specifiers:
   '@mistjs/tsconfig': ^1.0.0
   '@mistjs/tsconfig-vue': ^0.0.3
   '@types/node': ^18.13.0
-  '@v-c/utils': ^0.0.5
+  '@v-c/utils': ^0.0.12
   '@vitejs/plugin-vue-jsx': ^3.0.0
   '@vueuse/core': ^9.13.0
   eslint: ^8.34.0
@@ -28,7 +28,7 @@ dependencies:
   '@ant-design/colors': 7.0.0
   '@antd-tiny-vue/cssinjs': 0.0.4_vue@3.2.47
   '@ctrl/tinycolor': 3.6.0
-  '@v-c/utils': 0.0.5
+  '@v-c/utils': 0.0.12
   '@vueuse/core': 9.13.0_vue@3.2.47
   vue: 3.2.47
 
@@ -1280,8 +1280,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@v-c/utils/0.0.5:
-    resolution: {integrity: sha512-HiK9iupJ3YIl4AO8VxvQMVh5G7pkTYo7wMhWdsWr6XOPw86p5MgWdQRLhQNX1WbDjA9BsbpjuO7I5PyEhGYoFw==}
+  /@v-c/utils/0.0.12:
+    resolution: {integrity: sha512-onwjLSQpH6SG78WJnKiw8XgJfCgYtq59zFW19yiT22ik7ncaLkjojjCU0cAZDA6j6zY6li5U0VuZk91KbOrw2A==}
     dependencies:
       lodash.clonedeep: 4.5.0
       vue: 3.2.47
