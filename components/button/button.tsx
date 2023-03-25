@@ -2,18 +2,14 @@ import { computed, defineComponent } from 'vue'
 import { useProviderConfigState } from '../config-provider/context'
 import Wave from '../_util/wave'
 import useStyle from './style'
+import { buttonProps } from './interface'
 
 const Button = defineComponent({
   name: 'AButton',
   inheritAttrs: false,
+  __ANT_BUTTON: true,
   props: {
-    prefixCls: {
-      type: String
-    },
-    type: {
-      type: String,
-      default: 'default'
-    }
+    ...buttonProps
   },
   setup(props, { slots, attrs }) {
     const { getPrefixCls } = useProviderConfigState()
