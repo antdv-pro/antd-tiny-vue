@@ -4,6 +4,7 @@ import { computed } from 'vue'
 import type { DerivativeFunc } from '@antd-tiny-vue/cssinjs'
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface'
 import type { RenderEmptyHandler } from './default-render-empty'
+import type { ConfigProviderProps } from './index'
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined
 
@@ -77,21 +78,36 @@ export const configConsumerProps = {
 
 export type ConfigConsumerProps = ExtractPropTypes<typeof configConsumerProps>
 
-const [useProviderConfigProvide, useProviderConfigInject] = createInjectionState(() => {
-  const getPrefixCls = defaultGetPrefixCls
-  const iconPrefixCls = computed(() => defaultIconPrefixCls)
+const configState = (props: ConfigProviderProps) => {
+  const getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
+    const { prefixCls, getPrefixCls } = props
+    if (customizePrefixCls) return customizePrefixCls
+    const mergedPrefixCls = prefixCls || getPrefixCls?.('') || defaultGetPrefixCls('')
+    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls
+  }
+  const iconPrefixCls = computed(() => props?.iconPrefixCls ?? defaultIconPrefixCls)
+  const shouldWrapSSR = computed(() => iconPrefixCls.value !== defaultIconPrefixCls)
+  const csp = computed(() => props?.csp)
+  const componentSize = computed(() => props?.componentSize)
+  const componentDisabled = computed(() => props?.componentDisabled)
   return {
     getPrefixCls,
-    iconPrefixCls
+    iconPrefixCls,
+    shouldWrapSSR,
+    csp,
+    componentSize,
+    componentDisabled
   }
-})
+}
+const [useProviderConfigProvide, useProviderConfigInject] = createInjectionState(configState)
 
 export { useProviderConfigProvide }
-export const useProviderConfigState = () => {
+export const useProviderConfigState = (): ReturnType<typeof configState> => {
   return (
-    useProviderConfigInject() ?? {
+    useProviderConfigInject() ??
+    ({
       getPrefixCls: defaultGetPrefixCls,
       iconPrefixCls: computed(() => defaultIconPrefixCls)
-    }
+    } as any)
   )
 }

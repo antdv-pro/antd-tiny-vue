@@ -1,8 +1,8 @@
 import type { CSSInterpolation, Theme } from '@antd-tiny-vue/cssinjs'
 import { createTheme, useCacheToken, useStyleRegister } from '@antd-tiny-vue/cssinjs'
-import { createInjectionState } from '@v-c/utils'
+import { createInjectionState, objectType, someType } from '@v-c/utils'
 import type { ComputedRef, VNodeChild } from 'vue'
-import { computed } from 'vue'
+import { computed, defineComponent } from 'vue'
 import version from '../version'
 import type { AliasToken, GlobalToken, MapToken, OverrideToken, PresetColorKey, PresetColorType, SeedToken } from './interface'
 import { PresetColors } from './interface'
@@ -52,6 +52,21 @@ export interface DesignTokenConfig {
 
 const [useDesignTokenProvider, useDesignTokenInject] = createInjectionState((token: DesignTokenConfig) => {
   return token
+})
+
+export const DesignTokenProviderContext = defineComponent({
+  props: {
+    token: objectType<AliasToken>(),
+    theme: objectType<Theme<SeedToken, MapToken>>(),
+    components: objectType<OverrideToken>(),
+    hashed: someType<string | boolean>([String, Boolean])
+  },
+  setup(props, { slots }) {
+    useDesignTokenProvider(props)
+    return () => {
+      return slots.default?.()
+    }
+  }
 })
 
 export { useDesignTokenProvider }
