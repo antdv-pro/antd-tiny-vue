@@ -90,13 +90,17 @@ const configState = (props: ConfigProviderProps) => {
   const csp = computed(() => props?.csp)
   const componentSize = computed(() => props?.componentSize)
   const componentDisabled = computed(() => props?.componentDisabled)
+  const autoInsertSpaceInButton = computed(() => props?.autoInsertSpaceInButton)
+  const direction = computed(() => props?.direction)
   return {
     getPrefixCls,
     iconPrefixCls,
     shouldWrapSSR,
     csp,
     componentSize,
-    componentDisabled
+    componentDisabled,
+    autoInsertSpaceInButton,
+    direction
   }
 }
 const [useProviderConfigProvide, useProviderConfigInject] = createInjectionState(configState)
@@ -107,7 +111,11 @@ export const useProviderConfigState = (): ReturnType<typeof configState> => {
     useProviderConfigInject() ??
     ({
       getPrefixCls: defaultGetPrefixCls,
-      iconPrefixCls: computed(() => defaultIconPrefixCls)
+      iconPrefixCls: computed(() => defaultIconPrefixCls),
+      componentSize: computed(() => undefined),
+      componentDisabled: computed(() => false),
+      direction: computed(() => undefined),
+      autoInsertSpaceInButton: computed(() => undefined)
     } as any)
   )
 }

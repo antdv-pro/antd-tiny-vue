@@ -10,9 +10,15 @@ title: 基础按钮
 <script lang="ts" setup></script>
 
 <template>
-  <div>
+  <div style="display: flex; gap: 10px; padding-bottom: 10px">
     <a-button>这是按钮</a-button>
-    <div style="height: 10px"></div>
+    <a-button type="primary">这是按钮</a-button>
+    <a-button
+      type="primary"
+      danger
+    >
+      这是按钮
+    </a-button>
   </div>
 </template>
 
