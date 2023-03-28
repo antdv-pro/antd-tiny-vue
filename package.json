@@ -9,9 +9,9 @@
   "scripts": {
     "test": "vitest",
     "prepare": "husky install",
-    "dev": "vitepress dev site",
-    "build:site": "vitepress build site",
-    "preview": "vitepress preview site"
+    "dev": "vitepress dev",
+    "build:site": "vitepress build",
+    "preview": "vitepress preview"
   },
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
@@ -27,7 +27,7 @@
     "@mistjs/eslint-config-vue-jsx": "^0.0.3",
     "@mistjs/tsconfig": "^1.0.0",
     "@mistjs/tsconfig-vue": "^0.0.3",
-    "@types/node": "^18.15.9",
+    "@types/node": "^18.15.10",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "eslint": "^8.36.0",
     "husky": "^8.0.3",
