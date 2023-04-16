@@ -1,20 +1,20 @@
 <docs lang="zh-CN">
 ---
-title: 基础用法
+title: 基本用法
 ---
 
-基础用法测试
+这是基础按钮
 </docs>
 
 <docs lang="en-US">
 ---
-title: Basic Usage
+title: Basic Button
 ---
 
 Basic Usage Test
 </docs>
 
-<script lang="ts" setup></script>
+<script setup lang="ts"></script>
 
 <template>
   <div>Test</div>
