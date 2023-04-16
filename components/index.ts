@@ -1,5 +1,6 @@
 import type { App } from 'vue'
 import * as components from './components'
+import version from './version'
 
 export default {
   install(app: App) {
@@ -9,5 +10,6 @@ export default {
         app.use(component)
       }
     }
-  }
+  },
+  version
 }

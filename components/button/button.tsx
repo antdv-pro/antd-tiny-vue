@@ -1,6 +1,12 @@
 import { computed, defineComponent, onMounted, shallowRef } from 'vue'
 import { tryOnBeforeUnmount } from '@vueuse/core'
-import { classNames, filterEmpty, getSlotsProps, runEvent, useState } from '@v-c/utils'
+import {
+  classNames,
+  filterEmpty,
+  getSlotsProps,
+  runEvent,
+  useState
+} from '@v-c/utils'
 import { useProviderConfigState } from '../config-provider/context'
 import warning from '../_util/warning'
 import Wave from '../_util/wave'
@@ -24,7 +30,7 @@ function getLoadingConfig(loading: ButtonProps['loading']): LoadingConfigType {
   }
 
   return {
-    loading: !!loading,
+    loading,
     delay: 0
   }
 }
@@ -37,11 +43,15 @@ const Button = defineComponent({
     ...buttonProps
   },
   setup(props, { slots, attrs }) {
-    const { getPrefixCls, autoInsertSpaceInButton, direction } = useProviderConfigState()
+    const { getPrefixCls, autoInsertSpaceInButton, direction } =
+      useProviderConfigState()
     const prefixCls = computed(() => getPrefixCls('btn', props.prefixCls))
     const [wrapSSR, hashId] = useStyle(prefixCls)
     const size = useSize(props)
-    const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
+    const { compactSize, compactItemClassnames } = useCompactItemContext(
+      prefixCls,
+      direction
+    )
     const sizeCls = computed(() => {
       const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined }
       const sizeFullname = compactSize?.value || size.value
@@ -54,7 +64,9 @@ const Button = defineComponent({
       return getLoadingConfig(props.loading)
     })
 
-    const [innerLoading, setLoading] = useState<Loading>(loadingOrDelay.value.loading)
+    const [innerLoading, setLoading] = useState<Loading>(
+      loadingOrDelay.value.loading
+    )
     const [hasTwoCNChar, setHasTwoCNChar] = useState(false)
 
     let delayTimer: number | null = null
@@ -95,9 +107,17 @@ const Button = defineComponent({
 
       const icon = getSlotsProps(slots, props, 'icon')
 
-      warning(!(typeof icon === 'string' && icon.length > 2), 'Button', `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`)
+      warning(
+        !(typeof icon === 'string' && icon.length > 2),
+        'Button',
+        `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`
+      )
 
-      warning(!(ghost && isUnBorderedButtonType(type)), 'Button', "`link` or `text` button can't be a `ghost` button.")
+      warning(
+        !(ghost && isUnBorderedButtonType(type)),
+        'Button',
+        "`link` or `text` button can't be a `ghost` button."
+      )
     }
 
     return () => {
@@ -105,7 +125,11 @@ const Button = defineComponent({
       const icon = getSlotsProps(slots, props, 'icon')
       const children = filterEmpty(slots.default?.())
       const isNeedInserted = () => {
-        return children.length === 1 && !slots.icon && isUnBorderedButtonType(props.type)
+        return (
+          children.length === 1 &&
+          !slots.icon &&
+          isUnBorderedButtonType(props.type)
+        )
       }
 
       const fixTwoCNChar = () => {
@@ -137,10 +161,13 @@ const Button = defineComponent({
           [`${prefixCls.value}-${shape}`]: shape !== 'default' && shape,
           [`${prefixCls.value}-${type}`]: type,
           [`${prefixCls.value}-${sizeCls.value}`]: sizeCls.value,
-          [`${prefixCls.value}-icon-only`]: !children && children !== 0 && !!iconType,
-          [`${prefixCls.value}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
+          [`${prefixCls.value}-icon-only`]:
+            !children && children !== 0 && !!iconType,
+          [`${prefixCls.value}-background-ghost`]:
+            ghost && !isUnBorderedButtonType(type),
           [`${prefixCls.value}-loading`]: innerLoading.value,
-          [`${prefixCls.value}-two-chinese-chars`]: hasTwoCNChar.value && autoInsertSpace && !innerLoading.value,
+          [`${prefixCls.value}-two-chinese-chars`]:
+            hasTwoCNChar.value && autoInsertSpace && !innerLoading.value,
           [`${prefixCls.value}-block`]: block,
           [`${prefixCls.value}-dangerous`]: !!danger,
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
@@ -167,11 +194,7 @@ const Button = defineComponent({
         )
       }
       let buttonNode = (
-        <button
-          {...attrs}
-          onClick={handleClick}
-          class={classes}
-        >
+        <button {...attrs} onClick={handleClick} class={classes}>
           {children}
         </button>
       )

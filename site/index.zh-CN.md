@@ -10,8 +10,8 @@ hero:
   tagline: Simple, powerful, and performant. Meet the modern SSG framework you've always wanted.
   actions:
     - theme: brand
-      text: Components
-      link: /components/
+      text: 组件
+      link: /zh-CN/components/
     - theme: alt
       text: View on GitHub
       link: https://github.com/antd-tiny-vue/antd-tiny-vue
