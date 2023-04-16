@@ -12,6 +12,7 @@ export default defineConfig({
   rewrites: getRewrites(),
   mpa: true,
   lang: 'en-US',
+  ignoreDeadLinks: true,
   locales: {
     'zh-CN': {
       lang: 'zh-CN',

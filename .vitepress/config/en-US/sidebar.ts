@@ -4,14 +4,44 @@ const componentsDir = `/components/`
 
 export const getSidebar = (): DefaultTheme.Sidebar => {
   return {
-    '/components/': [
+    [componentsDir]: [
       {
-        text: 'Button',
-        link: `${componentsDir}button/`
+        text: 'General',
+        items: [
+          {
+            text: 'Button',
+            link: `${componentsDir}button/`
+          }
+        ]
       },
       {
-        text: 'ConfigProvider',
-        link: `${componentsDir}config-provider/`
+        text: 'Layout',
+        items: []
+      },
+      {
+        text: 'Navigation',
+        items: []
+      },
+      {
+        text: 'Data Entry',
+        items: []
+      },
+      {
+        text: 'Data Display',
+        items: []
+      },
+      {
+        text: 'Feedback',
+        items: []
+      },
+      {
+        text: 'Other',
+        items: [
+          {
+            text: 'ConfigProvider',
+            link: `${componentsDir}config-provider/`
+          }
+        ]
       }
     ]
   }
