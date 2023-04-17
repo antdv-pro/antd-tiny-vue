@@ -151,7 +151,7 @@ const Button = defineComponent({
       isNeedInserted =
         children.length === 1 &&
         !slots.icon &&
-        isUnBorderedButtonType(props.type)
+        !isUnBorderedButtonType(props.type)
       fixTwoCNChar()
       showError()
       const iconType = innerLoading.value ? 'loading' : icon
