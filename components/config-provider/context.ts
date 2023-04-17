@@ -1,8 +1,20 @@
-import { booleanType, createInjectionState, functionType, objectType, someType, stringType } from '@v-c/utils'
+import {
+  booleanType,
+  createInjectionState,
+  functionType,
+  objectType,
+  someType,
+  stringType
+} from '@v-c/utils'
 import type { ExtractPropTypes } from 'vue'
 import { computed } from 'vue'
 import type { DerivativeFunc } from '@antd-tiny-vue/cssinjs'
-import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface'
+import type {
+  AliasToken,
+  MapToken,
+  OverrideToken,
+  SeedToken
+} from '../theme/interface'
 import type { RenderEmptyHandler } from './default-render-empty'
 import type { ConfigProviderProps } from './index'
 
@@ -34,7 +46,10 @@ export interface ThemeConfig {
 }
 export const defaultIconPrefixCls = 'anticon'
 
-const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
+const defaultGetPrefixCls = (
+  suffixCls?: string,
+  customizePrefixCls?: string
+) => {
   if (customizePrefixCls) return customizePrefixCls
 
   return suffixCls ? `ant-${suffixCls}` : 'ant'
@@ -82,11 +97,16 @@ const configState = (props: ConfigProviderProps) => {
   const getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
     const { prefixCls, getPrefixCls } = props
     if (customizePrefixCls) return customizePrefixCls
-    const mergedPrefixCls = prefixCls || getPrefixCls?.('') || defaultGetPrefixCls('')
+    const mergedPrefixCls =
+      prefixCls || getPrefixCls?.('') || defaultGetPrefixCls('')
     return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls
   }
-  const iconPrefixCls = computed(() => props?.iconPrefixCls ?? defaultIconPrefixCls)
-  const shouldWrapSSR = computed(() => iconPrefixCls.value !== defaultIconPrefixCls)
+  const iconPrefixCls = computed(
+    () => props?.iconPrefixCls ?? defaultIconPrefixCls
+  )
+  const shouldWrapSSR = computed(
+    () => iconPrefixCls.value !== defaultIconPrefixCls
+  )
   const csp = computed(() => props?.csp)
   const componentSize = computed(() => props?.componentSize)
   const componentDisabled = computed(() => props?.componentDisabled)
@@ -103,7 +123,8 @@ const configState = (props: ConfigProviderProps) => {
     direction
   }
 }
-const [useProviderConfigProvide, useProviderConfigInject] = createInjectionState(configState)
+const [useProviderConfigProvide, useProviderConfigInject] =
+  createInjectionState(configState)
 
 export { useProviderConfigProvide }
 export const useProviderConfigState = (): ReturnType<typeof configState> => {
@@ -115,7 +136,7 @@ export const useProviderConfigState = (): ReturnType<typeof configState> => {
       componentSize: computed(() => undefined),
       componentDisabled: computed(() => false),
       direction: computed(() => undefined),
-      autoInsertSpaceInButton: computed(() => undefined)
+      autoInsertSpaceInButton: computed(() => true)
     } as any)
   )
 }

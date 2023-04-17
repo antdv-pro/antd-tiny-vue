@@ -58,8 +58,8 @@ const Button = defineComponent({
         small: 'sm',
         middle: undefined
       }
-      const sizeFullname = compactSize?.value || size.value
-      return sizeClassNameMap[sizeFullname]
+      const sizeFullName = compactSize?.value || size.value
+      return sizeClassNameMap[sizeFullName]
     })
     const disabled = useDisabled(props)
     const buttonRef = shallowRef<HTMLButtonElement | null>(null)
@@ -73,6 +73,30 @@ const Button = defineComponent({
     )
     const [hasTwoCNChar, setHasTwoCNChar] = useState(false)
 
+    const isNeedInserted = (children: any) => {
+      return (
+        children.length === 1 &&
+        !slots.icon &&
+        isUnBorderedButtonType(props.type)
+      )
+    }
+
+    const fixTwoCNChar = (children: any) => {
+      // console.log(buttonRef)
+      // FIXME: for HOC usage like <FormatMessage />
+      if (!buttonRef.value || autoInsertSpaceInButton.value === false) {
+        return
+      }
+      const buttonText = buttonRef.value.textContent
+      if (isNeedInserted(children) && isTwoCNChar(buttonText as string)) {
+        if (!hasTwoCNChar) {
+          setHasTwoCNChar(true)
+        }
+      } else if (hasTwoCNChar) {
+        setHasTwoCNChar(false)
+      }
+    }
+
     let delayTimer: number | null = null
 
     onMounted(() => {
@@ -84,7 +108,6 @@ const Button = defineComponent({
       } else {
         setLoading(loadingOrDelay.value.loading)
       }
-      // fixTwoCNChar()
     })
 
     function cleanupTimer() {
@@ -128,29 +151,8 @@ const Button = defineComponent({
       const { shape, rootClassName, ghost, type, block, danger } = props
       const icon = getSlotsProps(slots, props, 'icon')
       const children = filterEmpty(slots.default?.())
-      const isNeedInserted = () => {
-        return (
-          children.length === 1 &&
-          !slots.icon &&
-          isUnBorderedButtonType(props.type)
-        )
-      }
 
-      const fixTwoCNChar = () => {
-        // FIXME: for HOC usage like <FormatMessage />
-        if (!buttonRef.value || autoInsertSpaceInButton.value === false) {
-          return
-        }
-        const buttonText = buttonRef.value.textContent
-        if (isNeedInserted() && isTwoCNChar(buttonText as string)) {
-          if (!hasTwoCNChar) {
-            setHasTwoCNChar(true)
-          }
-        } else if (hasTwoCNChar) {
-          setHasTwoCNChar(false)
-        }
-      }
-      fixTwoCNChar()
+      fixTwoCNChar(children)
       showError()
       const iconType = innerLoading.value ? 'loading' : icon
 
@@ -198,7 +200,12 @@ const Button = defineComponent({
         )
       }
       let buttonNode = (
-        <button {...attrs} onClick={handleClick} class={classes}>
+        <button
+          {...attrs}
+          onClick={handleClick}
+          class={classes}
+          ref={buttonRef}
+        >
           {children}
         </button>
       )
