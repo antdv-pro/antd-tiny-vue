@@ -10,20 +10,19 @@ const baseSrc = fileURLToPath(new URL('./', import.meta.url))
 
 export default defineConfig({
   rewrites: getRewrites(),
-  mpa: true,
   lang: 'en-US',
   ignoreDeadLinks: true,
   locales: {
     'zh-CN': {
       lang: 'zh-CN',
-      title: 'vue3组件库站点',
+      title: 'Antd Tiny Vue',
       label: '简体中文',
       description: 'vue3组件库站点',
       themeConfig: getZhCNConfig()
     },
     root: {
       lang: 'en-US',
-      title: 'vue3 component library site',
+      title: 'Antd Tiny Vue',
       label: 'English',
       description: 'vue3 component library site',
       themeConfig: getEnUSConfig()

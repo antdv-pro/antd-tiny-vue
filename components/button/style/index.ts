@@ -20,7 +20,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (
   token
 ): CSSObject => {
   const { componentCls, iconCls } = token
-
   return {
     [componentCls]: {
       outline: 'none',
