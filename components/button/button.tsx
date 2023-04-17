@@ -53,9 +53,13 @@ const Button = defineComponent({
       direction
     )
     const sizeCls = computed(() => {
-      const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined }
+      const sizeClassNameMap: Record<string, any> = {
+        large: 'lg',
+        small: 'sm',
+        middle: undefined
+      }
       const sizeFullname = compactSize?.value || size.value
-      return sizeClassNameMap[sizeFullname!]
+      return sizeClassNameMap[sizeFullname]
     })
     const disabled = useDisabled(props)
     const buttonRef = shallowRef<HTMLButtonElement | null>(null)

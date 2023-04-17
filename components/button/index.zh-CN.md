@@ -54,7 +54,6 @@
 
 ## Design Token
 
-<ComponentTokenTable component="Button"></ComponentTokenTable>
 
 ## FAQ
 

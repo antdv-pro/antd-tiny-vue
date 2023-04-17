@@ -49,7 +49,6 @@ It accepts all props which native buttons support.
 
 ## Design Token
 
-<ComponentTokenTable component="Button"></ComponentTokenTable>
 
 ## FAQ
 
