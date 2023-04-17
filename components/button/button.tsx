@@ -16,7 +16,11 @@ import { useCompactItemContext } from '../space/compact'
 import useStyle from './style'
 import type { ButtonProps, LoadingConfigType } from './interface'
 import { buttonProps } from './interface'
-import { isTwoCNChar, isUnBorderedButtonType } from './button-helper'
+import {
+  isTwoCNChar,
+  isUnBorderedButtonType,
+  spaceChildren
+} from './button-helper'
 type Loading = number | boolean
 
 function getLoadingConfig(loading: ButtonProps['loading']): LoadingConfigType {
@@ -181,6 +185,10 @@ const Button = defineComponent({
       )
       const iconNode = icon && (!innerLoading.value ? icon?.() : <>L</>)
 
+      const kids =
+        children || children === 0
+          ? spaceChildren(children[0] as any, isNeedInserted && autoInsertSpace)
+          : undefined
       if (attrs.href !== undefined) {
         return wrapSSR(
           <a
@@ -191,7 +199,7 @@ const Button = defineComponent({
             ref={buttonRef}
           >
             {iconNode}
-            {children}
+            {kids}
           </a>
         )
       }
@@ -203,7 +211,7 @@ const Button = defineComponent({
           ref={buttonRef}
         >
           {iconNode}
-          {children}
+          {kids}
         </button>
       )
 

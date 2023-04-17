@@ -1,6 +1,7 @@
 // import type { VNode, VNodeChild } from 'vue'
 // import { isString } from '@v-c/utils'
-// import { cloneVNode } from 'vue'
+import { Text } from 'vue'
+import type { VNode } from 'vue'
 
 const rxTwoCNChar = /^[\u4E00-\u9FA5]{2}$/
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar)
@@ -8,6 +9,18 @@ export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar)
 export function isUnBorderedButtonType(type?: ButtonType) {
   return type === 'text' || type === 'link'
 }
+export const spaceChildren = (child: VNode, needInserted: boolean) => {
+  const SPACE = needInserted ? ' ' : ''
+  if (child.type === Text) {
+    let text = (child.children as string).trim()
+    if (isTwoCNChar(text)) {
+      text = text.split('').join(SPACE)
+    }
+    return <span>{text}</span>
+  }
+  return child
+}
+
 //
 // function splitCNCharsBySpace(child: VNodeChild , needInserted: boolean) {
 //     if (child === null || child === undefined) {
