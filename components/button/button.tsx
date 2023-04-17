@@ -73,26 +73,19 @@ const Button = defineComponent({
     )
     const [hasTwoCNChar, setHasTwoCNChar] = useState(false)
 
-    const isNeedInserted = (children: any) => {
-      return (
-        children.length === 1 &&
-        !slots.icon &&
-        isUnBorderedButtonType(props.type)
-      )
-    }
+    let isNeedInserted = false
 
-    const fixTwoCNChar = (children: any) => {
-      // console.log(buttonRef)
+    const fixTwoCNChar = () => {
       // FIXME: for HOC usage like <FormatMessage />
       if (!buttonRef.value || autoInsertSpaceInButton.value === false) {
         return
       }
       const buttonText = buttonRef.value.textContent
-      if (isNeedInserted(children) && isTwoCNChar(buttonText as string)) {
-        if (!hasTwoCNChar) {
+      if (isNeedInserted && isTwoCNChar(buttonText as string)) {
+        if (!hasTwoCNChar.value) {
           setHasTwoCNChar(true)
         }
-      } else if (hasTwoCNChar) {
+      } else if (hasTwoCNChar.value) {
         setHasTwoCNChar(false)
       }
     }
@@ -151,8 +144,11 @@ const Button = defineComponent({
       const { shape, rootClassName, ghost, type, block, danger } = props
       const icon = getSlotsProps(slots, props, 'icon')
       const children = filterEmpty(slots.default?.())
-
-      fixTwoCNChar(children)
+      isNeedInserted =
+        children.length === 1 &&
+        !slots.icon &&
+        isUnBorderedButtonType(props.type)
+      fixTwoCNChar()
       showError()
       const iconType = innerLoading.value ? 'loading' : icon
 
@@ -183,7 +179,7 @@ const Button = defineComponent({
         compactItemClassnames.value,
         rootClassName
       )
-      const iconNode = icon && !innerLoading.value ? icon?.() : <>L</>
+      const iconNode = icon && (!innerLoading.value ? icon?.() : <>L</>)
 
       if (attrs.href !== undefined) {
         return wrapSSR(
@@ -206,6 +202,7 @@ const Button = defineComponent({
           class={classes}
           ref={buttonRef}
         >
+          {iconNode}
           {children}
         </button>
       )

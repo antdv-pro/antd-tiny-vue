@@ -1,3 +1,7 @@
+// import type { VNode, VNodeChild } from 'vue'
+// import { isString } from '@v-c/utils'
+// import { cloneVNode } from 'vue'
+
 const rxTwoCNChar = /^[\u4E00-\u9FA5]{2}$/
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar)
 
@@ -33,7 +37,6 @@ export function isUnBorderedButtonType(type?: ButtonType) {
 //
 //     return child;
 // }
-//
 // export function spaceChildren(children: React.ReactNode, needInserted: boolean) {
 //     let isPrevChildPure: boolean = false;
 //     const childList: React.ReactNode[] = [];
@@ -57,7 +60,14 @@ export function isUnBorderedButtonType(type?: ButtonType) {
 //     );
 // }
 
-const ButtonTypes = ['default', 'primary', 'ghost', 'dashed', 'link', 'text'] as const
+const ButtonTypes = [
+  'default',
+  'primary',
+  'ghost',
+  'dashed',
+  'link',
+  'text'
+] as const
 export type ButtonType = (typeof ButtonTypes)[number]
 
 const ButtonShapes = ['default', 'circle', 'round'] as const
