@@ -1,6 +1,7 @@
 {
   "name": "antd-tiny-vue",
   "version": "1.0.0",
+  "packageManager": "pnpm@8.2.0",
   "description": "this is a tiny antd components for vue3",
   "keywords": [
     "antd",
@@ -20,7 +21,6 @@
     "build:site": "vitepress build",
     "preview": "vitepress preview"
   },
-  "packageManager": "pnpm@8.2.0",
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
     "@antd-tiny-vue/cssinjs": "0.0.8",
