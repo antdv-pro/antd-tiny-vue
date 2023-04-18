@@ -1,6 +1,7 @@
 {
   "name": "antd-tiny-vue",
   "version": "1.0.0",
+  "packageManager": "pnpm@8.2.0",
   "description": "this is a tiny antd components for vue3",
   "keywords": [
     "antd",
@@ -20,13 +21,12 @@
     "build:site": "vitepress build",
     "preview": "vitepress preview"
   },
-  "packageManager": "pnpm@8.2.0",
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
     "@ant-design/icons-vue": "^6.1.0",
-    "@antd-tiny-vue/cssinjs": "^0.0.4",
+    "@antd-tiny-vue/cssinjs": "0.0.8",
     "@ctrl/tinycolor": "^3.6.0",
-    "@v-c/utils": "^0.0.19",
+    "@v-c/utils": "^0.0.22",
     "@vueuse/core": "^9.13.0",
     "vue": "^3.2.47"
   },
@@ -45,7 +45,7 @@
     "typescript": "^4.9.5",
     "unbuild": "^1.1.2",
     "vite": "^4.2.1",
-    "vite-plugin-vitepress-demo": "2.0.0-beta.28",
+    "vite-plugin-vitepress-demo": "2.0.0-beta.29",
     "vitepress": "1.0.0-alpha.69",
     "vitest": "^0.28.5"
   },

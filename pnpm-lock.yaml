@@ -8,14 +8,14 @@ dependencies:
     specifier: ^6.1.0
     version: 6.1.0(vue@3.2.47)
   '@antd-tiny-vue/cssinjs':
-    specifier: ^0.0.4
-    version: 0.0.4(vue@3.2.47)
+    specifier: 0.0.8
+    version: 0.0.8(vue@3.2.47)
   '@ctrl/tinycolor':
     specifier: ^3.6.0
     version: 3.6.0
   '@v-c/utils':
-    specifier: ^0.0.19
-    version: 0.0.19
+    specifier: ^0.0.22
+    version: 0.0.22
   '@vueuse/core':
     specifier: ^9.13.0
     version: 9.13.0(vue@3.2.47)
@@ -67,8 +67,8 @@ devDependencies:
     specifier: ^4.2.1
     version: 4.2.1(@types/node@18.15.10)
   vite-plugin-vitepress-demo:
-    specifier: 2.0.0-beta.28
-    version: 2.0.0-beta.28(vitepress@1.0.0-alpha.69)
+    specifier: 2.0.0-beta.29
+    version: 2.0.0-beta.29(vitepress@1.0.0-alpha.69)
   vitepress:
     specifier: 1.0.0-alpha.69
     version: 1.0.0-alpha.69(@types/node@18.15.10)
@@ -225,8 +225,8 @@ packages:
       vue: 3.2.47
     dev: false
 
-  /@antd-tiny-vue/cssinjs@0.0.4(vue@3.2.47):
-    resolution: {integrity: sha512-o6eU9IN+nfzaeCLHaQ94FqgvZV7eHeyY/Qw0p7ETMOyEQup13LBb4feOQKHGtBKLRkeoTugpY6EhAuMhn10SYw==}
+  /@antd-tiny-vue/cssinjs@0.0.8(vue@3.2.47):
+    resolution: {integrity: sha512-Q5/4ugRfaIn0jfG/D5eXu2DtGfmMbsNAvAcx6M0aRjY3gfvd4h/W7YDIfI4N9lfighnvJ8A4CgW6d9xAHlP5pw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -1459,8 +1459,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@v-c/utils@0.0.19:
-    resolution: {integrity: sha512-f+ZifqMUCY7UsP1+Z7FZIq8bxE+2CDTaF69NQFfBJw/z6EC+oJEX7HXaVqliYXW+JM20Qfq6x4huNXjJXdDkMQ==}
+  /@v-c/utils@0.0.22:
+    resolution: {integrity: sha512-fkFIpo6jAJ2CxQXFyd3woLHmBwHkWiOSA29eul0a2eWyRKtsESwRMVNAvis+hCKwexzLHY80wxlvWxpn3OCjbQ==}
     dependencies:
       lodash.clonedeep: 4.5.0
       lodash.isequal: 4.5.0
@@ -5077,8 +5077,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-vitepress-demo@2.0.0-beta.28(vitepress@1.0.0-alpha.69):
-    resolution: {integrity: sha512-Js/plBl72fPoHv00VJYo33v5YnbhWzLK2bwzCZ1+H28bS+JmdMVBa8SnMy8GAFiZgpAEudLf55sRlQY4BGCv2Q==}
+  /vite-plugin-vitepress-demo@2.0.0-beta.29(vitepress@1.0.0-alpha.69):
+    resolution: {integrity: sha512-9AvlF5Bz6kMfkvlLDdcuv/Xz9Va/HRuh8YCpwiz3NKeIo+BnZ6ehn7tc/Wj/RVH2XZlJTUNyEvMOvIwNlzY2sw==}
     peerDependencies:
       vitepress: ^1.0.0-alpha.63
     dependencies:
