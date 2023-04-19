@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
+    "@ant-design/icons-vue": "^6.1.0",
     "@antd-tiny-vue/cssinjs": "0.0.8",
     "@ctrl/tinycolor": "^3.6.0",
     "@v-c/utils": "^0.0.22",

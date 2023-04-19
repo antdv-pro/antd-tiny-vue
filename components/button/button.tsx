@@ -21,6 +21,7 @@ import {
   isUnBorderedButtonType,
   spaceChildren
 } from './button-helper'
+import LoadingIcon from './loading-icon'
 type Loading = number | boolean
 
 function getLoadingConfig(loading: ButtonProps['loading']): LoadingConfigType {
@@ -183,7 +184,17 @@ const Button = defineComponent({
         compactItemClassnames.value,
         rootClassName
       )
-      const iconNode = icon && (!innerLoading.value ? icon?.() : <>L</>)
+      const iconNode =
+        icon &&
+        (!innerLoading.value ? (
+          icon?.()
+        ) : (
+          <LoadingIcon
+            existIcon={!!icon}
+            prefixCls={prefixCls.value}
+            loading={!!innerLoading.value}
+          />
+        ))
 
       const kids =
         children || children === 0
