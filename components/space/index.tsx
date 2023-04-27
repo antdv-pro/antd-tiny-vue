@@ -84,7 +84,7 @@ const Space = defineComponent({
 
     return () => {
       const { align, direction, rootClassName, split, wrap } = props
-      const childNodes = filterEmpty(slots.default?.())
+      const childNodes = filterEmpty(slots.default?.() as any)
       const mergedAlign =
         align === undefined && direction === 'horizontal' ? 'center' : align
       const cn = classNames(

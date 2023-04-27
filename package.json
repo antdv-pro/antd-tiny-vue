@@ -28,7 +28,7 @@
     "@ctrl/tinycolor": "^3.6.0",
     "@v-c/utils": "^0.0.22",
     "@vueuse/core": "^9.13.0",
-    "vue": "^3.2.47"
+    "vue": "^3.3.0-beta.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.0",
@@ -44,9 +44,9 @@
     "prettier": "^2.8.7",
     "typescript": "^4.9.5",
     "unbuild": "^1.1.2",
-    "vite": "^4.2.1",
+    "vite": "^4.3.3",
     "vite-plugin-vitepress-demo": "2.0.0-beta.29",
-    "vitepress": "1.0.0-alpha.69",
+    "vitepress": "1.0.0-alpha.74",
     "vitest": "^0.28.5"
   },
   "pnpm": {
@@ -54,6 +54,9 @@
       "ignoreMissing": [
         "@algolia/client-search"
       ]
+    },
+    "overrides": {
+      "vue": "3.3.0-beta.2"
     }
   },
   "lint-staged": {

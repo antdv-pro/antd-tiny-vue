@@ -148,7 +148,7 @@ const Button = defineComponent({
     return () => {
       const { shape, rootClassName, ghost, type, block, danger } = props
       const icon = getSlotsProps(slots, props, 'icon')
-      const children = filterEmpty(slots.default?.())
+      const children = filterEmpty(slots.default?.() as any)
       isNeedInserted =
         children.length === 1 &&
         !slots.icon &&
