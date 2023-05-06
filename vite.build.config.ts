@@ -10,6 +10,7 @@ export default defineConfig({
     })
   ],
   build: {
+    minify: false,
     rollupOptions: {
       external: [
         '@ant-design/colors',
